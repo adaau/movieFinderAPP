@@ -1,0 +1,28 @@
+<ion-view view-title="Search Movies">
+  <ion-content>
+
+    <!-- our search bar -->
+    <div class="list">
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="Search by movie name" ng-model="movieForm.movieName">
+        </label>
+        <button class="button button-small" ng-click="movieForm.searchMovie()">
+          Submit
+        </button>
+      </div>
+    </div>
+
+    <!-- a spinning icon-->
+    <ion-spinner ng-show="loading" icon="spiral" class="center" style="margin: 0 auto;"></ion-spinner>
+
+    <!-- a list of movies from our request -->
+    <div class="list">
+      <a class="item" ui-sref="app.singleMovie({ id: movie.imdbID })" ng-repeat="movie in movies">
+        <h2>{{ movie.Title }}</h2>
+        <p>{{ movie.Year }}</p>
+      </a>
+    </div>
+
+  </ion-content>
+</ion-view>
